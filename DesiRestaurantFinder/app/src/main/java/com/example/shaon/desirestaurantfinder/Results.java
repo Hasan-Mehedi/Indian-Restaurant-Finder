@@ -6,6 +6,7 @@ import android.os.Parcelable;
 
 public class Results implements Parcelable {
     String name;
+    String restauranturl;
     String address;
     String locality;
     String city;
@@ -29,9 +30,10 @@ public class Results implements Parcelable {
 
 
 
-    public Results(String name,String address,String locality,String city,String zipcode,double latitude,double longitude,String cuisines,String average_cost_for_two,String price_range,String offers,String thumb,String aggregate_rating,String votes,String photos_url,
+    public Results(String name,String restauranturl, String address,String locality,String city,String zipcode,double latitude,double longitude,String cuisines,String average_cost_for_two,String price_range,String offers,String thumb,String aggregate_rating,String votes,String photos_url,
                    String menu_url,String featured_image_url,String has_online_delivery,String is_delivering_now,String events_url) {
         this.name = name;
+        this.restauranturl=restauranturl;
         this.address = address;
         this.locality=locality;
         this.city = city;
@@ -56,6 +58,7 @@ public class Results implements Parcelable {
 
     protected Results(Parcel in) {
         name = in.readString();
+        restauranturl=in.readString();
         address = in.readString();
         city = in.readString();
         locality = in.readString();
@@ -85,6 +88,7 @@ public class Results implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
+        dest.writeString(restauranturl);
         dest.writeString(address);
         dest.writeString(city);
         dest.writeString(locality);

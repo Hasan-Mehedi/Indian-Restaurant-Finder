@@ -29,7 +29,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         webView = (WebView) findViewById(R.id.webView);
 
         result = getIntent().getParcelableExtra("result");
-        webView.loadUrl(result.businessURL);
+        webView.loadUrl(result.restauranturl);
 
         if(googleServicesAvailable()){
             initMap();
@@ -65,8 +65,8 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         mGoogleMap.animateCamera(update);
 
         MarkerOptions options = new MarkerOptions()
-                .title(result.title)
-                .snippet(result.phone)
+                .title(result.name)
+                .snippet(result.city)
                 .position(ll);
         mGoogleMap.addMarker(options);
 

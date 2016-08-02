@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by vivianaranha on 1/24/16.
- */
+
 public class ResultsAdapter extends ArrayAdapter{
 
     ArrayList<Results> results;
@@ -24,16 +22,16 @@ public class ResultsAdapter extends ArrayAdapter{
     }
 
     class ResultsViewHolder{
-        TextView myTitle;
+        TextView myName;
         TextView myAddress;
-        TextView myPhone;
-        TextView myDistance;
+        TextView myZipcode;
+        TextView myCity;
 
         ResultsViewHolder(View v){
-            myTitle = (TextView) v.findViewById(R.id.titleField);
+            myName = (TextView) v.findViewById(R.id.nameField);
             myAddress = (TextView) v.findViewById(R.id.addressField);
-            myPhone = (TextView) v.findViewById(R.id.phoneField);
-            myDistance = (TextView) v.findViewById(R.id.distanceField);
+            myZipcode = (TextView) v.findViewById(R.id.zipcodeField);
+            myCity = (TextView) v.findViewById(R.id.cityField);
         }
     }
 
@@ -50,10 +48,10 @@ public class ResultsAdapter extends ArrayAdapter{
             holder = (ResultsViewHolder) row.getTag();
         }
         Results result = results.get(position);
-        holder.myTitle.setText(result.title);
-        holder.myAddress.setText(result.address+", "+result.city+", "+result.state);
-        holder.myPhone.setText("Phone: "+result.phone);
-        holder.myDistance.setText("Distance: "+result.disance+" miles");
+        holder.myName.setText(result.name);
+        holder.myAddress.setText(result.address);
+        holder.myZipcode.setText("Zipcode: "+result.zipcode);
+        holder.myCity.setText("City: "+result.city);
 
         return row;
     }

@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Title"
-        android:id="@+id/titleField" />
+        android:text="Name"
+        android:id="@+id/nameField" />
 
     <TextView
         android:layout_width="match_parent"
@@ -24,13 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Phone: 123-456-7890"
-        android:id="@+id/phoneField" />
+        android:text="Zipcode"
+        android:id="@+id/zipcodeField" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Distance: 1.1 miles"
-        android:id="@+id/distanceField" />
+        android:text="City"
+        android:id="@+id/cityField" />
 </LinearLayout>
