@@ -37,7 +37,7 @@ public class Downloader extends AsyncTask<String, Integer, ArrayList> {
     protected ArrayList doInBackground(String... params) {
 
         // String yqlURL = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20local.search%20where%20zip%3D%27"+params[1]+"%27%20and%20query%3D%27"+params[0]+"%27&format=json&callback=";
-        String zomatoURL ="https://developers.zomato.com/api/v2.1/search?lat=38.8976763&lon=-77.0365298&cuisines=148&sort=real_distance&order=asc"+"&apikey=a08d1a0f0f5548cfd078adb5e8c7945d";
+        String zomatoURL ="https://developers.zomato.com/api/v2.1/search?lat="+params[0]+"&lon="+params[1]+"&cuisines=148&sort=real_distance&order=asc"+"&apikey=a08d1a0f0f5548cfd078adb5e8c7945d";
                 //"https://developers.zomato.com/api/v2.1/search?lat=" + params[0] + "&lon=" + params[1] + "&cuisines=148"+"&apikey=a08d1a0f0f5548cfd078adb5e8c7945d";
         ArrayList<Results> resultsArrayList = new ArrayList<Results>();
 
