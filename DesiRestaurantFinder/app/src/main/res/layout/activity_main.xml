@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:onClick="getCurrentLocation"
-        android:text="Restaurent near me" />
+        android:text="Restaurants near me" />
 
 
     <EditText
