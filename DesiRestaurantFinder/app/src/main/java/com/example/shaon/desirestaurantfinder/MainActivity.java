@@ -8,8 +8,11 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -31,11 +34,27 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
 
+    ViewPager mViewPager;
+    CustomPagerAdapter mCustomPagerAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // searchTerm = (EditText) findViewById(R.id.searchTerm);
+
+        //viewpager to slide show image
+        mCustomPagerAdapter = new CustomPagerAdapter(this);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mCustomPagerAdapter);
+
+        //welcome screen as a dialog
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.welcome_screen, (ViewGroup) findViewById(R.id.welcome));
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
         zipCode = (EditText) findViewById(R.id.zipCode);
     }
 
@@ -47,18 +66,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             List<Address> addresses = geocoder.getFromLocationName(zip, 1);
             if (addresses != null && !addresses.isEmpty()) {
                 Address address = addresses.get(0);
-                // Use the address as needed
-//                String message = String.format("Latitude: %f, Longitude: %f",
-//                        address.getLatitude(), address.getLongitude());
                 lat = address.getLatitude();
                 lng = address.getLongitude();
 
             } else {
-                // Display appropriate message when Geocoder services are not available
                 Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
-            // handle exception
+
         }
 
         Intent intent = new Intent(this, ResultsActivity.class);
@@ -121,8 +136,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 Address address = addresses.get(0);
                 lat = address.getLatitude();
                 lng = address.getLongitude();
-                //Toast.makeText(this,"this is lattitude" + lat,Toast.LENGTH_LONG).show();
-                //zipCode.setText(address.getPostalCode());
                 LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
                 Intent intent = new Intent(this, ResultsActivity.class);
                 Bundle b = new Bundle();

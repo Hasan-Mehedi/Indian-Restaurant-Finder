@@ -24,14 +24,14 @@ public class ResultsAdapter extends ArrayAdapter{
     class ResultsViewHolder{
         TextView myName;
         TextView myAddress;
-        TextView myZipcode;
-        TextView myCity;
+        TextView myaveragecost;
+        TextView myRating;
 
         ResultsViewHolder(View v){
             myName = (TextView) v.findViewById(R.id.nameField);
             myAddress = (TextView) v.findViewById(R.id.addressField);
-            myZipcode = (TextView) v.findViewById(R.id.zipcodeField);
-            myCity = (TextView) v.findViewById(R.id.cityField);
+            myaveragecost = (TextView) v.findViewById(R.id.averagecostField);
+            myRating = (TextView) v.findViewById(R.id.ratingField);
         }
     }
 
@@ -50,8 +50,8 @@ public class ResultsAdapter extends ArrayAdapter{
         Results result = results.get(position);
         holder.myName.setText(result.name);
         holder.myAddress.setText(result.address);
-        holder.myZipcode.setText("Zipcode: "+result.zipcode);
-        holder.myCity.setText("City: "+result.city);
+        holder.myaveragecost.setText("Average cost for a couple: "+result.average_cost_for_two);
+        holder.myRating.setText("Rating: "+result.aggregate_rating);
 
         return row;
     }

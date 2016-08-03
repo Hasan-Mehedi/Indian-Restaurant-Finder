@@ -22,8 +22,8 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         listView = (ListView) findViewById(R.id.listView);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        hideProgressBar();
+//        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+//        hideProgressBar();
 
 //        String searchTerm = getIntent().getStringExtra("searchTerm");
 //        String postalCode = getIntent().getStringExtra("postalCode");
@@ -40,20 +40,20 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
         downloader.execute(latt, lngg);
     }
 
-    public void displayProgressBar(){
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    public void setProgressBarProgress(int progress){
-        progressBar.setProgress(progress);
-        if(progress == 100){
-            hideProgressBar();
-        }
-    }
-
-    public void hideProgressBar(){
-        progressBar.setVisibility(View.GONE);
-    }
+//    public void displayProgressBar(){
+//        progressBar.setVisibility(View.VISIBLE);
+//    }
+//
+//    public void setProgressBarProgress(int progress){
+//        progressBar.setProgress(progress);
+//        if(progress == 100){
+//            hideProgressBar();
+//        }
+//    }
+//
+//    public void hideProgressBar(){
+//        progressBar.setVisibility(View.GONE);
+//    }
 
     public void drawListView(ArrayList<Results> resultsArray){
         results = new ArrayList<Results>();
