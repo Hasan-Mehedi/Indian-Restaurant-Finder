@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -29,6 +30,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         webView = (WebView) findViewById(R.id.webView);
 
         result = getIntent().getParcelableExtra("result");
+        webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(result.restauranturl);
 
         if(googleServicesAvailable()){
