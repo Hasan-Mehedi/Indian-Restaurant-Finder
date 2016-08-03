@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
             } else {
                 // Display appropriate message when Geocoder services are not available
-                Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Unable to search zipcode", Toast.LENGTH_LONG).show();
             }
         } catch (IOException e) {
             // handle exception
@@ -70,13 +70,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     public void getCurrentLocation(View view) {
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-        mGoogleApiClient.connect();
-    }
+
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addApi(LocationServices.API)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .build();
+            mGoogleApiClient.connect();
+        }
 
     @Override
     public void onConnected(Bundle bundle) {
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onLocationChanged(Location location) {
         if (location == null) {
-            Toast.makeText(this, "Cant get Current location", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Can't get Current location", Toast.LENGTH_LONG).show();
         } else {
             Geocoder geocoder = new Geocoder(this, Locale.getDefault());
             try {
