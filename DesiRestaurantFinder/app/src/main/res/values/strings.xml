@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Desi Restaurant Finder</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string-array name="option">
+        <item>Indian Restaurant</item>
+        <item>Indian Store</item>
+        <item>Pizza</item>
+        <item>Chinese</item>
+
+
+    </string-array>
+
 </resources>
