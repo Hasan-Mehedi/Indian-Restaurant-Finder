@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener,AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, AdapterView.OnItemClickListener {
 
     EditText zipCode;
     double lat, lng;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        drawerListener = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close){
+        drawerListener = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
 
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 super.onDrawerClosed(drawerView);
             }
         };
-
 
 
         //viewpager to slide show image
@@ -119,13 +118,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     public void getCurrentLocation(View view) {
 
-            mGoogleApiClient = new GoogleApiClient.Builder(this)
-                    .addApi(LocationServices.API)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .build();
-            mGoogleApiClient.connect();
-        }
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
+        mGoogleApiClient.connect();
+    }
 
     @Override
     public void onConnected(Bundle bundle) {

@@ -31,10 +31,10 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
 //        double lng=Double.parseDouble(getIntent().getStringExtra("longitude"));
         Bundle b = getIntent().getExtras();
         double lat = b.getDouble("lattitude");
-        double lng=b.getDouble("longitude");
+        double lng = b.getDouble("longitude");
 
-        String latt=String.valueOf(lat);
-        String lngg=String.valueOf(lng);
+        String latt = String.valueOf(lat);
+        String lngg = String.valueOf(lng);
 
         Downloader downloader = new Downloader(this);
         downloader.execute(latt, lngg);
@@ -55,7 +55,7 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
 //        progressBar.setVisibility(View.GONE);
 //    }
 
-    public void drawListView(ArrayList<Results> resultsArray){
+    public void drawListView(ArrayList<Results> resultsArray) {
         results = new ArrayList<Results>();
         results = resultsArray;
         ResultsAdapter adapter = new ResultsAdapter(this, resultsArray);

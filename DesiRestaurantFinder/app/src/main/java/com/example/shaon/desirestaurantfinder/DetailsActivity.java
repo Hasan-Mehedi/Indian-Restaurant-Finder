@@ -19,7 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class DetailsActivity extends AppCompatActivity{
+public class DetailsActivity extends AppCompatActivity {
 
     WebView webView;
     Results result;
@@ -33,15 +33,15 @@ public class DetailsActivity extends AppCompatActivity{
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(result.restauranturl);
 
-            }
+    }
 
     public void show_location_in_map(View view) {
-        Intent intent=new Intent(this,restaurant_location_in_map.class);
+        Intent intent = new Intent(this, restaurant_location_in_map.class);
         Bundle b = new Bundle();
-        b.putDouble("lattitude",result.latitude );
-        b.putDouble("longitude",result.longitude );
-        b.putString("title",result.name);
-        b.putString("city",result.city);
+        b.putDouble("lattitude", result.latitude);
+        b.putDouble("longitude", result.longitude);
+        b.putString("title", result.name);
+        b.putString("city", result.city);
         intent.putExtras(b);
         startActivity(intent);
 
