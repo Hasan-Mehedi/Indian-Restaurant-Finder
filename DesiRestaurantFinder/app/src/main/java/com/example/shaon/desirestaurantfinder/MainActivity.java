@@ -102,12 +102,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 lng = address.getLongitude();
 
             } else {
-<<<<<<< HEAD
                 // Display appropriate message when Geocoder services are not available
                 Toast.makeText(this, "Unable to search zipcode", Toast.LENGTH_LONG).show();
-=======
-                Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
->>>>>>> e10e75dfb41eff4a26b7dc44187279b350af49e2
             }
         } catch (IOException e) {
 

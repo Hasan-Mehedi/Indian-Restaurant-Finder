@@ -7,16 +7,19 @@
     android:orientation="vertical"
     tools:context="com.example.shaon.desirestaurantfinder.ResultsActivity">
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/mapFragment" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See loation on map"
+        android:onClick="show_location_in_map"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1" />
 
     <WebView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/webView" />
+        android:layout_height="438dp"
+        android:id="@+id/webView"
+        android:layout_weight="0.84" />
 </LinearLayout>
