@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name"
+        android:textColor="#fff"
         android:id="@+id/nameField" />
 
     <TextView
@@ -18,19 +19,22 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Address"
+        android:textColor="#fff"
         android:id="@+id/addressField" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Zipcode"
-        android:id="@+id/zipcodeField" />
+        android:text="average cost"
+        android:textColor="#fff"
+        android:id="@+id/averagecostField" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="City"
-        android:id="@+id/cityField" />
+        android:text="Rating"
+        android:textColor="#fff"
+        android:id="@+id/ratingField" />
 </LinearLayout>

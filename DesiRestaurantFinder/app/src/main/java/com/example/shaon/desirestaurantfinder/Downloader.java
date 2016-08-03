@@ -27,11 +27,11 @@ public class Downloader extends AsyncTask<String, Integer, ArrayList> {
         this.activity = activity;
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        activity.displayProgressBar();
-    }
+//    @Override
+//    protected void onPreExecute() {
+//        super.onPreExecute();
+//        activity.displayProgressBar();
+//    }
 
     @Override
     protected ArrayList doInBackground(String... params) {
@@ -105,11 +105,11 @@ public class Downloader extends AsyncTask<String, Integer, ArrayList> {
         return resultsArrayList;
     }
 
-    @Override
-    protected void onProgressUpdate(Integer... values) {
-        super.onProgressUpdate(values);
-        activity.setProgressBarProgress(values[0]);
-    }
+//    @Override
+//    protected void onProgressUpdate(Integer... values) {
+//        super.onProgressUpdate(values);
+//        activity.setProgressBarProgress(values[0]);
+//    }
 
     @Override
     protected void onPostExecute(ArrayList arrayList) {
