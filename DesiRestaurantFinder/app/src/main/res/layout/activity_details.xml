@@ -14,8 +14,7 @@
         android:text="See loation on map"
         android:onClick="show_location_in_map"
         android:id="@+id/button2"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1" />
+        android:layout_gravity="center_horizontal" />
 
     <WebView
         android:layout_width="match_parent"
