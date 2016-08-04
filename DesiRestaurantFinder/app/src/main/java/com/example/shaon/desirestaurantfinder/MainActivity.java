@@ -30,6 +30,8 @@ import com.google.android.gms.location.LocationServices;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, AdapterView.OnItemClickListener {
 
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     ViewPager mViewPager;
     CustomPagerAdapter mCustomPagerAdapter;
+    Timer timer;
+    int page = 1;
 
     DrawerLayout drawerLayout;
     ListView listView;
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        zipCode = (EditText) findViewById(R.id.zipCode);
         //welcome screen as a dialog
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.welcome_screen, (ViewGroup) findViewById(R.id.welcome));
@@ -64,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         options = getResources().getStringArray(R.array.option);
         listView = (ListView) findViewById(R.id.drawerList);
         listView.setOnItemClickListener(this);
-
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         drawerListener = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close) {
@@ -85,9 +89,40 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mCustomPagerAdapter);
-
-        zipCode = (EditText) findViewById(R.id.zipCode);
+        pageSwitcher(3);
     }
+
+
+    public void pageSwitcher(int seconds) {
+        timer = new Timer(); // At this line a new Thread will be created
+        timer.scheduleAtFixedRate(new RemindTask(), 0, seconds * 1000); // delay
+        // in
+        // milliseconds
+    }
+
+
+    // this is an inner class...
+    class RemindTask extends TimerTask {
+
+        @Override
+        public void run() {
+
+            // As the TimerTask run on a seprate thread from UI thread we have
+            // to call runOnUiThread to do work on UI thread.
+            runOnUiThread(new Runnable() {
+                public void run() {
+
+                    if (page > 5) {
+                        page = 1;
+                    }
+                    mViewPager.setCurrentItem(page++);
+
+                }
+            });
+
+        }
+    }
+
 
     public void search(View view) {
 

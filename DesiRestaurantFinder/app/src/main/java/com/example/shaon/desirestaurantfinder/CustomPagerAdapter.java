@@ -19,11 +19,11 @@ class CustomPagerAdapter extends PagerAdapter {
     int[] mResources = {
 
             R.drawable.images2,
-            R.drawable.images1,
-            R.drawable.images2,
-            R.drawable.images1,
-            R.drawable.images2,
-            R.drawable.images1
+            R.drawable.image6,
+            R.drawable.image8,
+            R.drawable.iamge9,
+            R.drawable.images5,
+            R.drawable.images4
     };
 
 

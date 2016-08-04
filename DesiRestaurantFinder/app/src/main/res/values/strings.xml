@@ -5,8 +5,11 @@
     <string-array name="option">
         <item>Indian Restaurant</item>
         <item>Indian Store</item>
-        <item>Pizza</item>
-        <item>Chinese</item>
+        <item>Categories</item>
+        <item>Been Here</item>
+        <item>Favorites</item>
+        <item>Settings</item>
+
 
 
     </string-array>
