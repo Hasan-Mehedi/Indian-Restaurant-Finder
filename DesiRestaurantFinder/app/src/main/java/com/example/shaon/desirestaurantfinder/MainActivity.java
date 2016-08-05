@@ -1,14 +1,19 @@
 package com.example.shaon.desirestaurantfinder;
 
 import android.Manifest;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,12 +75,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 lng = address.getLongitude();
 
             } else {
-<<<<<<< HEAD
+
                 // Display appropriate message when Geocoder services are not available
                 Toast.makeText(this, "Unable to search zipcode", Toast.LENGTH_LONG).show();
-=======
                 Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
->>>>>>> e10e75dfb41eff4a26b7dc44187279b350af49e2
+
             }
         } catch (IOException e) {
 
@@ -91,13 +95,35 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     public void getCurrentLocation(View view) {
 
-            mGoogleApiClient = new GoogleApiClient.Builder(this)
-                    .addApi(LocationServices.API)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .build();
-            mGoogleApiClient.connect();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
+        mGoogleApiClient.connect();
+        LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+        if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                !lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            // Build the alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Location Services Not Active");
+            builder.setMessage("Please enable Location Services and GPS");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    // Show location settings when the user acknowledges the alert dialog
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
+                }
+            });
+            Dialog alertDialog = builder.create();
+            alertDialog.setCanceledOnTouchOutside(false);
+            alertDialog.show();
         }
+
+
+
+
+    }
 
     @Override
     public void onConnected(Bundle bundle) {

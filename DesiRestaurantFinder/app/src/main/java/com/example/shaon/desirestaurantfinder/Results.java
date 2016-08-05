@@ -28,14 +28,12 @@ public class Results implements Parcelable {
     String events_url;
 
 
-
-
-    public Results(String name,String restauranturl, String address,String locality,String city,String zipcode,double latitude,double longitude,String cuisines,String average_cost_for_two,String price_range,String offers,String thumb,String aggregate_rating,String votes,String photos_url,
-                   String menu_url,String featured_image_url,String has_online_delivery,String is_delivering_now,String events_url) {
+    public Results(String name, String restauranturl, String address, String locality, String city, String zipcode, double latitude, double longitude, String cuisines, String average_cost_for_two, String price_range, String offers, String thumb, String aggregate_rating, String votes, String photos_url,
+                   String menu_url, String featured_image_url, String has_online_delivery, String is_delivering_now, String events_url) {
         this.name = name;
-        this.restauranturl=restauranturl;
+        this.restauranturl = restauranturl;
         this.address = address;
-        this.locality=locality;
+        this.locality = locality;
         this.city = city;
         this.zipcode = zipcode;
         this.cuisines = cuisines;
@@ -45,7 +43,7 @@ public class Results implements Parcelable {
         this.price_range = price_range;
         this.offers = offers;
         this.thumb = thumb;
-        this.aggregate_rating=aggregate_rating;
+        this.aggregate_rating = aggregate_rating;
         this.votes = votes;
         this.photos_url = photos_url;
         this.menu_url = menu_url;
@@ -58,7 +56,7 @@ public class Results implements Parcelable {
 
     protected Results(Parcel in) {
         name = in.readString();
-        restauranturl=in.readString();
+        restauranturl = in.readString();
         address = in.readString();
         city = in.readString();
         locality = in.readString();

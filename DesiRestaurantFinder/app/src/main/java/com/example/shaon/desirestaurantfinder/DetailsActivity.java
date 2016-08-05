@@ -33,7 +33,7 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(result.restauranturl);
 
-        if(googleServicesAvailable()){
+        if (googleServicesAvailable()) {
             initMap();
         }
 
@@ -47,9 +47,9 @@ public class DetailsActivity extends AppCompatActivity implements OnMapReadyCall
     public boolean googleServicesAvailable() {
         GoogleApiAvailability api = GoogleApiAvailability.getInstance();
         int isAvailable = api.isGooglePlayServicesAvailable(this);
-        if(isAvailable == ConnectionResult.SUCCESS) {
+        if (isAvailable == ConnectionResult.SUCCESS) {
             return true;
-        } else if (api.isUserResolvableError(isAvailable)){
+        } else if (api.isUserResolvableError(isAvailable)) {
             Dialog dialog = api.getErrorDialog(this, isAvailable, 0);
             dialog.show();
         } else {

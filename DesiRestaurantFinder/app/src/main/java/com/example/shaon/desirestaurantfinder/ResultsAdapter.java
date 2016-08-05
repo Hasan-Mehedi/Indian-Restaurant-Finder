@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-public class ResultsAdapter extends ArrayAdapter{
+public class ResultsAdapter extends ArrayAdapter {
 
     ArrayList<Results> results;
     Context context;
@@ -21,13 +21,13 @@ public class ResultsAdapter extends ArrayAdapter{
         this.context = context;
     }
 
-    class ResultsViewHolder{
+    class ResultsViewHolder {
         TextView myName;
         TextView myAddress;
         TextView myaveragecost;
         TextView myRating;
 
-        ResultsViewHolder(View v){
+        ResultsViewHolder(View v) {
             myName = (TextView) v.findViewById(R.id.nameField);
             myAddress = (TextView) v.findViewById(R.id.addressField);
             myaveragecost = (TextView) v.findViewById(R.id.averagecostField);
@@ -39,7 +39,7 @@ public class ResultsAdapter extends ArrayAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
         ResultsViewHolder holder = null;
-        if(row == null){
+        if (row == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.single_row, parent, false);
             holder = new ResultsViewHolder(row);
@@ -50,8 +50,8 @@ public class ResultsAdapter extends ArrayAdapter{
         Results result = results.get(position);
         holder.myName.setText(result.name);
         holder.myAddress.setText(result.address);
-        holder.myaveragecost.setText("Average cost for a couple: "+result.average_cost_for_two);
-        holder.myRating.setText("Rating: "+result.aggregate_rating);
+        holder.myaveragecost.setText("Average cost for a couple: " + result.average_cost_for_two);
+        holder.myRating.setText("Rating: " + result.aggregate_rating);
 
         return row;
     }

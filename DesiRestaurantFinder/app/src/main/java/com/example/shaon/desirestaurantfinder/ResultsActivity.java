@@ -3,6 +3,7 @@ package com.example.shaon.desirestaurantfinder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -17,11 +18,13 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
     ArrayList<Results> results;
     ProgressBar progressBar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         listView = (ListView) findViewById(R.id.listView);
+
 //        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 //        hideProgressBar();
 
@@ -31,16 +34,26 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
 //        double lng=Double.parseDouble(getIntent().getStringExtra("longitude"));
         Bundle b = getIntent().getExtras();
         double lat = b.getDouble("lattitude");
-        double lng=b.getDouble("longitude");
+        double lng = b.getDouble("longitude");
 
-        String latt=String.valueOf(lat);
-        String lngg=String.valueOf(lng);
+        String latt = String.valueOf(lat);
+        String lngg = String.valueOf(lng);
 
         Downloader downloader = new Downloader(this);
         downloader.execute(latt, lngg);
     }
 
-//    public void displayProgressBar(){
+
+
+//    @Override
+
+//    public boolean onContextItemSelected(MenuItem item) {
+//        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+//
+//
+//        return super.onContextItemSelected(item);
+//    }
+    //    public void displayProgressBar(){
 //        progressBar.setVisibility(View.VISIBLE);
 //    }
 //
@@ -55,7 +68,7 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
 //        progressBar.setVisibility(View.GONE);
 //    }
 
-    public void drawListView(ArrayList<Results> resultsArray){
+    public void drawListView(ArrayList<Results> resultsArray) {
         results = new ArrayList<Results>();
         results = resultsArray;
         ResultsAdapter adapter = new ResultsAdapter(this, resultsArray);
@@ -71,4 +84,12 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
         intent.putExtra("result", result);
         startActivity(intent);
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.save, menu);
+
+    }
 }
+
