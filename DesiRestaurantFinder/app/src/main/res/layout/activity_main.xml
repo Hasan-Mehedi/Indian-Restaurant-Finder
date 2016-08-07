@@ -14,13 +14,26 @@
     android:layout_height="match_parent"
     android:background="@drawable/background2"
     android:orientation="vertical"
+<<<<<<< HEAD
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+=======
+>>>>>>> 0795ac29f3731377d9e85b298775c590ba0e14ec
     tools:context=".MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
+<<<<<<< HEAD
+        android:layout_width="350dp"
+        android:layout_height="200dp"></android.support.v4.view.ViewPager>
+=======
         android:layout_width="match_parent"
         android:layout_height="200dp">
     </android.support.v4.view.ViewPager>
+>>>>>>> 0795ac29f3731377d9e85b298775c590ba0e14ec
 
     <Button
         android:id="@+id/button"
@@ -36,15 +49,29 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+
         android:ems="10"
+<<<<<<< HEAD
+
+        android:hint="Please Enter zipcode or city"
+        android:background="#ff1"
+        android:textColorHint="#006400"
+
+
+        android:layout_gravity="center_horizontal" />
+
+            android:gravity="center_horizontal"
+        android:hint="Please Enter city or zipcode" />
+=======
         android:textColorHint="#0ff963"
         android:id="@+id/zipCode"
         android:gravity="center_horizontal"
         android:hint="Please Enter city or zipcode" />
 
+>>>>>>> 0795ac29f3731377d9e85b298775c590ba0e14ec
 
-    <Button
+
+         <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

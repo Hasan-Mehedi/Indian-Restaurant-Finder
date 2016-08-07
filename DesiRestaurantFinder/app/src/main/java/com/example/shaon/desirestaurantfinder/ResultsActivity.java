@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.database.CursorJoiner;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+import android.view.ContextMenu;
+>>>>>>> 71a7f330bec99499dde88affa7dd3993a0528228
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,11 +24,13 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
     ArrayList<Results> results;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         listView = (ListView) findViewById(R.id.listView);
+
 //        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 //        hideProgressBar();
 
@@ -43,7 +49,17 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
         downloader.execute(latt, lngg);
     }
 
-//    public void displayProgressBar(){
+
+
+//    @Override
+
+//    public boolean onContextItemSelected(MenuItem item) {
+//        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+//
+//
+//        return super.onContextItemSelected(item);
+//    }
+    //    public void displayProgressBar(){
 //        progressBar.setVisibility(View.VISIBLE);
 //    }
 //
@@ -84,4 +100,12 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
 
 
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.save, menu);
+
+    }
 }
+
