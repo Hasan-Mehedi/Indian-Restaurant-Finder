@@ -37,4 +37,6 @@
         android:text="Rating"
         android:textColor="#fff"
         android:id="@+id/ratingField" />
+
+
 </LinearLayout>

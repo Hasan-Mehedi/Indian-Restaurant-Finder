@@ -1,12 +1,15 @@
 package com.example.shaon.desirestaurantfinder;
 
 import android.content.Intent;
+import android.database.CursorJoiner;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,7 +18,7 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
 
     ListView listView;
     ArrayList<Results> results;
-    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +70,18 @@ public class ResultsActivity extends AppCompatActivity implements AdapterView.On
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         Results result = results.get(position);
-        Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("result", result);
-        startActivity(intent);
+
+//        Intent intent = new Intent(this, DetailsActivity.class);
+//        intent.putExtra("result", result);
+//        startActivity(intent);
+
+        SQLDatabaseAdapter databaseAdapter = new SQLDatabaseAdapter(this);
+        Toast.makeText(this,"what's goiing on",Toast.LENGTH_LONG).show();
+        Log.d("INSERTING", result.name);
+        databaseAdapter.insertData(result);
+
+
+
+
     }
 }

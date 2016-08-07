@@ -3,6 +3,7 @@ package com.example.shaon.desirestaurantfinder;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -12,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         mCustomPagerAdapter = new CustomPagerAdapter(this);
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mCustomPagerAdapter);
-        pageSwitcher(3);
+        //pageSwitcher(3);
     }
 
 
@@ -223,5 +225,24 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         listView.setItemChecked(position, true);
 
+    }
+
+
+    public void fetchdata(View view) {
+//        SQLDatabaseAdapter databaseAdapter = new SQLDatabaseAdapter(this);
+//        databaseAdapter.fetchAllResults();
+
+        Cursor results = getContentResolver().query(MyContentProvider.CONTENT_URI, null, null, null, null);
+
+        Log.d("Fetched Data", "HELLO HEELO");
+
+        while (results.moveToNext()) {
+            int addressIndex = results.getColumnIndex("rTitle");
+            String address = results.getString(addressIndex);
+            Log.d("Fetched Data", address);
+
+            // create a result object like the downloader class and call the
+
+        }
     }
 }

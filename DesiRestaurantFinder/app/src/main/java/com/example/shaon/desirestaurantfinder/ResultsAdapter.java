@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ public class ResultsAdapter extends ArrayAdapter{
         super(context, R.layout.single_row, results);
         this.results = results;
         this.context = context;
+
+
     }
 
     class ResultsViewHolder{
@@ -27,11 +30,13 @@ public class ResultsAdapter extends ArrayAdapter{
         TextView myaveragecost;
         TextView myRating;
 
+
         ResultsViewHolder(View v){
             myName = (TextView) v.findViewById(R.id.nameField);
             myAddress = (TextView) v.findViewById(R.id.addressField);
             myaveragecost = (TextView) v.findViewById(R.id.averagecostField);
             myRating = (TextView) v.findViewById(R.id.ratingField);
+
         }
     }
 

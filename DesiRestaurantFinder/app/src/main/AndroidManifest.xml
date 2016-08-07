@@ -36,7 +36,8 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBm-9ZHXsp9TmUEOlTFzdeqmv-lNJxt6Ag" />
+            android:value="AIzaSyDTFxOxZH_6Drf7J5nEkehnboWXijEPFXk"
+            />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -44,6 +45,12 @@
         <activity android:name=".ResultsActivity" />
         <activity android:name=".DetailsActivity" />
         <activity android:name=".restaurant_location_in_map"></activity>
+
+        <provider
+            android:name=".MyContentProvider"
+            android:authorities="com.shaon.desirestaurantfinder"
+            android:enabled="true"
+            android:exported="false"></provider>
     </application>
 
 </manifest>
