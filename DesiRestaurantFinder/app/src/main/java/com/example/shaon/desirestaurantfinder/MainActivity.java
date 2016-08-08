@@ -14,12 +14,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.view.ViewPager;
-<<<<<<< HEAD
-import android.support.v7.app.AlertDialog;
-=======
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
->>>>>>> 0795ac29f3731377d9e85b298775c590ba0e14ec
+import android.support.v7.app.AlertDialog;
+
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        zipCode = (EditText) findViewById(R.id.zipCode);
+        zipCode = (EditText) findViewById(R.id.zipcode);
         //welcome screen as a dialog
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.welcome_screen, (ViewGroup) findViewById(R.id.welcome));
@@ -146,16 +144,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 lng = address.getLongitude();
 
             } else {
-<<<<<<< HEAD
+
 
                 // Display appropriate message when Geocoder services are not available
                 Toast.makeText(this, "Unable to search zipcode", Toast.LENGTH_LONG).show();
                 Toast.makeText(this, "Unable to geocode zipcode", Toast.LENGTH_LONG).show();
 
-=======
-                // Display appropriate message when Geocoder services are not available
-                Toast.makeText(this, "Unable to search zipcode", Toast.LENGTH_LONG).show();
->>>>>>> 0795ac29f3731377d9e85b298775c590ba0e14ec
+
             }
         } catch (IOException e) {
 
@@ -177,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 .addOnConnectionFailedListener(this)
                 .build();
         mGoogleApiClient.connect();
-<<<<<<< HEAD
+
         LocationManager lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 !lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
@@ -196,9 +191,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             alertDialog.setCanceledOnTouchOutside(false);
             alertDialog.show();
         }
-=======
-    }
->>>>>>> 0795ac29f3731377d9e85b298775c590ba0e14ec
+
+
 
 
 

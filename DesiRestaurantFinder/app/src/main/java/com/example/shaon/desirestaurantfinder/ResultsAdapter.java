@@ -30,12 +30,10 @@ public class ResultsAdapter extends ArrayAdapter {
         TextView myaveragecost;
         TextView myRating;
 
-<<<<<<< HEAD
+
 
         ResultsViewHolder(View v){
-=======
-        ResultsViewHolder(View v) {
->>>>>>> 71a7f330bec99499dde88affa7dd3993a0528228
+
             myName = (TextView) v.findViewById(R.id.nameField);
             myAddress = (TextView) v.findViewById(R.id.addressField);
             myaveragecost = (TextView) v.findViewById(R.id.averagecostField);
